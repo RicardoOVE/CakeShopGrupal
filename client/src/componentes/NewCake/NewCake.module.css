@@ -1,0 +1,31 @@
+.h3 {
+    font-weight: bolder;
+    text-shadow: 0.2em 0.2em 0.3em rgb(142, 139, 139);
+}
+
+.btn2 {
+    background-color: rgb(231, 61, 95);
+    color: white;
+    border-radius: 1rem;
+    text-decoration: none;
+    box-shadow: 2px 2px black;
+}
+.btn2:hover {
+    color:white;
+}
+.btn2:active {
+    color:rgb(0, 0, 0);
+}
+
+.btn3 {
+    background-color: rgb(248, 13, 60);
+    color: white;
+    border-radius: .5rem;
+    text-decoration: none;
+    border-radius: .5rem;
+    border: 0ex;
+    box-shadow: 2px 2px black;
+    margin-left: 40%;
+    margin-right: 10%;
+    
+}

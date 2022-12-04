@@ -1,0 +1,42 @@
+.h1 {
+    font-style: italic;
+    color: crimson;
+    text-shadow: 0.1em 0.1em 0.2em rgb(201, 141, 141);
+    margin-left: 2%;
+}
+
+.cont {
+    display: flex;
+}
+
+.cont1 {
+    background-image: url("../public/imagenes/fondo1.gif");
+
+}
+
+.btn {
+    background-color: rgb(143, 5, 33);
+    color: white;
+    text-decoration: none;
+    border-radius: .5rem;
+    border: 0cm;
+    box-shadow: 2px 2px black;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.img {
+    border-radius: 100%;
+    box-shadow: 0.1em 0.1em 0.2em rgb(11, 9, 9);
+}
+
+.btn2 {
+    background-color: rgb(190, 105, 122);
+    color: white;
+    text-decoration: none;
+    border-radius: .5rem;
+    border: 0cm;
+    box-shadow: 2px 2px black;
+    padding-left: 1%;
+    padding-right: 1%;
+}
