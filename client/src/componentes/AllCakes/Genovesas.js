@@ -72,7 +72,7 @@ const Genovesas = () => {
                 
                 <div className="container">
                     {lista.map((item) => {
-                        if (item.categoria === "Genovesas") {
+                        if (item.categoria === "Genovesa") {
 
                         
                         return (

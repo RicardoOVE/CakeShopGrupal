@@ -72,7 +72,7 @@ const Postres = () => {
                 
                 <div className="container">
                     {lista.map((item) => {
-                        if (item.categoria === "Postres") {
+                        if (item.categoria === "Postre") {
 
                         
                         return (

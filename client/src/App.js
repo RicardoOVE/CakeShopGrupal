@@ -8,6 +8,10 @@ import Registro from "./componentes/Login/Registro";
 import Login from "./componentes/Login/Login";
 import Cupcakes from "./componentes/AllCakes/Cupcakes";
 import Galletas from "./componentes/AllCakes/Galletas";
+import Genovesas from "./componentes/AllCakes/Genovesas";
+import Postres from "./componentes/AllCakes/Postres";
+import Tortas from "./componentes/AllCakes/Tortas";
+import OtrosProductos from "./componentes/AllCakes/OtrosProductos";
 
 
 
@@ -31,6 +35,10 @@ function App() {
           <Route path="/cakes" exact render={() => <AllCakes />} />
           <Route path="/cupcakes" exact render={() => <Cupcakes />} />
           <Route path="/galletas" exact render={() => <Galletas />} />
+          <Route path="/genovesas" exact render={() => <Genovesas />} />
+          <Route path="/postres" exact render={() => <Postres />} />
+          <Route path="/tortas" exact render={() => <Tortas />} />
+          <Route path="/otros_productos" exact render={() => <OtrosProductos />} />
           <Route path="/cake/new" exact render={() => <NewCake />} />
           <Route path="/cake/:id" exact render={(routeProps) => <Cake {...routeProps} />} />
           <Route path="/cake/update/:id" render={() => <UpdateCake />}/>
