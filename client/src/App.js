@@ -36,7 +36,7 @@ function App() {
           <Route path="/cake/update/:id" render={() => <UpdateCake />}/>
         </Switch>
 
-</BrowserRouter>
+      </BrowserRouter>
     </div>
   );
 }

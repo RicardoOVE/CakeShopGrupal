@@ -4,8 +4,6 @@ import axios from "axios";
 import styles from "./Cake.module.css";
 import Cookies from 'universal-cookie';
 
-
-
 const Cake = () => {
     //id de la ruta en App
     const {id} = useParams();
