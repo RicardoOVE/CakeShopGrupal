@@ -4,6 +4,8 @@ import Cake from "./componentes/Cake/Cake";
 import NewCake from "./componentes/NewCake/NewCake";
 import styles from "./App.module.css";
 import UpdateCake from "./componentes/UpdateCake/UpdateCake";
+import Registro from "./componentes/Login/Registro";
+import Login from "./componentes/Login/Login";
 
 
 
@@ -29,6 +31,8 @@ function App() {
       <BrowserRouter>
 
         <Switch>
+          <Route path="/registro" exact render={() => <Registro />} />
+          <Route path="/login" exact render={() => <Login />} />
           <Route path="/cakes" exact render={() => <AllCakes />} />
           <Route path="/cake/new" exact render={() => <NewCake />} />
           <Route path="/cake/:id" exact render={(routeProps) => <Cake {...routeProps} />} />
