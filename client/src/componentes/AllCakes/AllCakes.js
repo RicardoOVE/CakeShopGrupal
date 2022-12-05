@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios"
 import styles from "./AllCakes.module.css";
+import Cart from "../Cart/Cart";
 
 const url = "http://localhost:8000/api/cakes";
 
@@ -99,6 +100,7 @@ const AllCakes = () => {
                             </div>
                         </div>
                     )})}   
+                    <Cart></Cart>
             </div>
             <br/>
 

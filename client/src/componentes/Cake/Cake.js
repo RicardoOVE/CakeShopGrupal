@@ -3,17 +3,11 @@ import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 import styles from "./Cake.module.css";
 
-
-
 const Cake = () => {
     //id de la ruta en App
     const {id} = useParams();
     const [cake, setCake] = useState({});
-
-
-
-    //Inicializar el servidor para optener el producto que necesito
-    //Se inicializa a travez de axios
+    const [cartItems, setCartItems] = useState([])
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/cake/"+id)
@@ -75,6 +69,7 @@ const Cake = () => {
                         </table>
                         <Link to={`/cake/update/${cake._id}`} 
                         className={`${styles.btn3} link-light`} > Editar Producto</Link>
+                        <Link to={`/cake/addcart/${cake._id}`} className={`${styles.btn3} link-light`}> Agregar al carrito </Link>
                         
                     </div>   
                 </div>  
