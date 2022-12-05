@@ -8,7 +8,7 @@ import Cookies from 'universal-cookie';
 
 const url = "http://localhost:8000/api/cakes";
 
-const AllCakes = () => {
+const Galletas = () => {
 
     const [lista, setLista] = useState([])
 
@@ -70,9 +70,11 @@ const AllCakes = () => {
                 </div>
                 <br/>
                 
+                
+
                 <div className="container">
                     {lista.map((item) => {
-                       
+                        if (item.categoria === "Galletas") {
 
                         
                         return (
@@ -128,12 +130,9 @@ const AllCakes = () => {
                                     </div>
                                 </div>
                             </div>
-                        )}
+                        )}}
                         )}   
                 </div>
-
-                
-                
 
                 <br/>
 
@@ -142,4 +141,4 @@ const AllCakes = () => {
     );
 
 }
-export default AllCakes;
+export default Galletas;

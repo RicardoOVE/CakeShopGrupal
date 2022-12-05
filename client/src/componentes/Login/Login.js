@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
+import Cookies from 'universal-cookie';
+
 
 const Login = () => {
 
@@ -23,8 +25,10 @@ const Login = () => {
         }, )
             .then(res => {
                 if(res.data.user.rol ==="cliente"){
-                    history.push('/');
+                    history.push('/cakes');
                 } else if (res.data.user.rol ==="administrador"){
+                    const cookies = new Cookies()
+                    cookies.set('rol', res.data.user.rol, {path: '/'})
                     history.push('/cakes');
                 }
             })

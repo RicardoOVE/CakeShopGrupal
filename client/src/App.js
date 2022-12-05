@@ -6,6 +6,8 @@ import styles from "./App.module.css";
 import UpdateCake from "./componentes/UpdateCake/UpdateCake";
 import Registro from "./componentes/Login/Registro";
 import Login from "./componentes/Login/Login";
+import Cupcakes from "./componentes/AllCakes/Cupcakes";
+import Galletas from "./componentes/AllCakes/Galletas";
 
 
 
@@ -19,14 +21,7 @@ function App() {
         <h3 className={`${styles.h1} col-3`}>Revive la tradición</h3>
       </div>
       <br/>
-      <div className="d-flex justify-content-evenly align-items-center">
-        <button className={`${styles.btn} link-light`}>Cupcakes</button>
-        <button className={`${styles.btn} link-light`}>Galletas</button>
-        <button className={`${styles.btn} link-light`}>Genovesas</button>
-        <button className={`${styles.btn} link-light`}>Postres</button>
-        <button className={`${styles.btn} link-light`}>Tortas</button>
-        <button className={`${styles.btn} link-light`}>Otros productos</button>
-      </div>
+      
       <br/>
       <BrowserRouter>
 
@@ -34,6 +29,8 @@ function App() {
           <Route path="/registro" exact render={() => <Registro />} />
           <Route path="/login" exact render={() => <Login />} />
           <Route path="/cakes" exact render={() => <AllCakes />} />
+          <Route path="/cupcakes" exact render={() => <Cupcakes />} />
+          <Route path="/galletas" exact render={() => <Galletas />} />
           <Route path="/cake/new" exact render={() => <NewCake />} />
           <Route path="/cake/:id" exact render={(routeProps) => <Cake {...routeProps} />} />
           <Route path="/cake/update/:id" render={() => <UpdateCake />}/>

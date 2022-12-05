@@ -26,7 +26,7 @@ const Registro = () => {
             password,
             confirmPassword
         }, )
-            .then(res => history.push('/cakes'))
+            .then(res => history.push('/'))
             .catch(err => setErrorsRegistro(err.response.data.errors));
     }
 
