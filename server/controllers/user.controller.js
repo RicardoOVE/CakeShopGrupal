@@ -58,6 +58,5 @@ module.exports.login = (req, res) => {
 
 module.exports.logout = (req, res) => {
     res.clearCookie('usertoken');
-    res.clearCookie('rol');
     res.json({message: "Salimos de sesión!"});
 }

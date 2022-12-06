@@ -6,6 +6,7 @@ import axios from "axios"
 import styles from "./AllCakes.module.css";
 import Cookies from 'universal-cookie';
 
+
 const url = "http://localhost:8000/api/cakes";
 
 const AllCakes = () => {
@@ -16,7 +17,10 @@ const AllCakes = () => {
 
     const cerrarSesion = () => {
         axios.get('http://localhost:8000/api/logout')
-            .then(res => history.push('/'))
+            .then(res => {
+                cookies.remove('rol', {path: '/'}); 
+                history.push('/')
+            } )
             .catch(err => console.log(err));
     }
 
