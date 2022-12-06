@@ -1,5 +1,6 @@
 const CakesController = require("../controllers/cakes.controller")
 const UserController = require("../controllers/user.controller");
+const {upload} = require("../config/multer.config")
 
 const {authenticate} = require("../config/jwt.config");
 
@@ -14,6 +15,10 @@ module.exports = (app) => {
     app.post('/api/register', UserController.register);
     app.post('/api/login', UserController.login);
     app.get('/api/logout', UserController.logout);
+
+    //imagen
+    app.post('/api/imagen', upload.single("file"), function(req, res){res.json({})});
+
 }
 
 //GET traer información

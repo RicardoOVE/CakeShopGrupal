@@ -6,6 +6,7 @@ import styles from "./App.module.css";
 import UpdateCake from "./componentes/UpdateCake/UpdateCake";
 import Registro from "./componentes/Login/Registro";
 import Login from "./componentes/Login/Login";
+import Addimage from "./componentes/Addimage";
 
 
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/cake/new" exact render={() => <NewCake />} />
           <Route path="/cake/:id" exact render={(routeProps) => <Cake {...routeProps} />} />
           <Route path="/cake/update/:id" render={() => <UpdateCake />}/>
+          <Route path="/imagen" render={() => <Addimage/>}/>
         </Switch>
 
 </BrowserRouter>

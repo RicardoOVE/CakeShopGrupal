@@ -13,6 +13,10 @@ const AllCakes = () => {
 
     const history = useHistory();
 
+    const [error, setError] = useState();
+
+    const [image, setImage] = useState();
+
 
     const get_all = () => {
         axios.get(url)
@@ -38,6 +42,31 @@ const AllCakes = () => {
             })
     }
 
+    async function handleSubmit(e) {
+        e.preventDefault();
+        try {
+          let imageUrl = "";
+          if (image) {
+            const formData = new FormData();
+            formData.append("file", image);
+            formData.append("upload_preset", "pruebaImagen");
+            const dataRes = await axios.post(
+              "yourUrl",
+              formData
+            );
+            imageUrl = dataRes.data.url;
+          }
+    
+          const submitPost = {
+            image: imageUrl,
+          };
+          
+          await axios.post("http://localhost:3001/store-image", submitPost);
+        } catch (err) {
+          err.response.data.msg && setError(err.response.data.msg);
+        }
+      }
+
     return (
         <div className="container ">
             <div>
@@ -47,6 +76,7 @@ const AllCakes = () => {
                 
             </div>
             <br/>
+           
             
             <div className="container">
                 {lista.map((item) => {
