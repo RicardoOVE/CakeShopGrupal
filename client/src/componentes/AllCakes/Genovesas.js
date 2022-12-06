@@ -6,10 +6,9 @@ import axios from "axios"
 import styles from "./AllCakes.module.css";
 import Cookies from 'universal-cookie';
 
-
 const url = "http://localhost:8000/api/cakes";
 
-const AllCakes = () => {
+const Genovesas = () => {
 
     const [lista, setLista] = useState([])
 
@@ -17,19 +16,12 @@ const AllCakes = () => {
 
     const cerrarSesion = () => {
         axios.get('http://localhost:8000/api/logout')
-            .then(res => {
-                cookies.remove('rol', {path: '/'}); 
-                history.push('/')
-            } )
+            .then(res => history.push('/'))
             .catch(err => console.log(err));
     }
 
     const cookies = new Cookies();
     const tipoUsuario = null ?? cookies.get('rol');
-    const [error, setError] = useState();
-
-    const [image, setImage] = useState();
-
 
     const get_all = () => {
         axios.get(url)
@@ -55,31 +47,6 @@ const AllCakes = () => {
             })
     }
 
-    async function handleSubmit(e) {
-        e.preventDefault();
-        try {
-          let imageUrl = "";
-          if (image) {
-            const formData = new FormData();
-            formData.append("file", image);
-            formData.append("upload_preset", "pruebaImagen");
-            const dataRes = await axios.post(
-              "yourUrl",
-              formData
-            );
-            imageUrl = dataRes.data.url;
-          }
-    
-          const submitPost = {
-            image: imageUrl,
-          };
-          
-          await axios.post("http://localhost:3001/store-image", submitPost);
-        } catch (err) {
-          err.response.data.msg && setError(err.response.data.msg);
-        }
-      }
-
     return (
         <div>
             <div className="d-flex justify-content-evenly align-items-center">
@@ -103,27 +70,28 @@ const AllCakes = () => {
                 </div>
                 <br/>
                 
-            </div>
-            <br/>
-            
-            <div className="container">
-                {lista.map((item) => {
-                    return (
-                        <div className="container col-8 bg-transparent border-dark mb-3 text-center" >
-                            <div className="container p-3">
-                                <div className="row">
-                                    <h2 className={`${styles.h2}`}>{item.nombre}</h2>
-                                    <div className="col-4" style={{alignSelf:"center"}}>
-                                        <img src={item.imagenURL} alt="cake" className='img-fluid img-thumbnail border border-dark'/>
-                                    </div>
-                                    
-                                    <div className={`${styles.cont1} col-5 container`} style={{alignSelf:"center"}}>
-                                        <div className="row text-align-center"  >
-                                            <div className="col-6">
-                                                <p><b># de Porciones:</b></p>
-                                            </div>
-                                            <div className="col-6">
-                                                <p> {item.porciones}</p>
+                <div className="container">
+                    {lista.map((item) => {
+                        if (item.categoria === "Genovesa") {
+
+                        
+                        return (
+                            <div className="container col-8 bg-transparent border-dark mb-3 text-center" >
+                                <div className="container p-3">
+                                    <div className="row">
+                                        <h2 className={`${styles.h2}`}>{item.nombre}</h2>
+                                        <div className="col-4" style={{alignSelf:"center"}}>
+                                            <img src={item.imagenURL} alt="cake" className='img-fluid img-thumbnail border border-dark'/>
+                                        </div>
+                                        
+                                        <div className={`${styles.cont1} col-5 container`} style={{alignSelf:"center"}}>
+                                            <div className="row text-align-center"  >
+                                                <div className="col-6">
+                                                    <p><b># de Porciones:</b></p>
+                                                </div>
+                                                <div className="col-6">
+                                                    <p> {item.porciones}</p>
+                                                </div>
                                             </div>
                                             <div className="row">
                                                 <div className="col-6">
@@ -160,13 +128,11 @@ const AllCakes = () => {
                                     </div>
                                 </div>
                             </div>
-                        )}
+                        )}}
                         )}   
                 </div>
 
                 
-                
-
                 <br/>
 
             </div>
@@ -174,4 +140,4 @@ const AllCakes = () => {
     );
 
 }
-export default AllCakes;
+export default Genovesas;

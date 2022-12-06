@@ -2,15 +2,15 @@ import React, {useEffect, useState} from "react";
 import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 import styles from "./Cake.module.css";
-
-
+import Cookies from 'universal-cookie';
 
 const Cake = () => {
     //id de la ruta en App
     const {id} = useParams();
     const [cake, setCake] = useState({});
 
-
+    const cookies = new Cookies();
+    const tipoUsuario = null ?? cookies.get('rol');
 
     //Inicializar el servidor para optener el producto que necesito
     //Se inicializa a travez de axios
@@ -73,8 +73,9 @@ const Cake = () => {
                                 </tr>
                             </tbody>
                         </table>
-                        <Link to={`/cake/update/${cake._id}`} 
-                        className={`${styles.btn3} link-light`} > Editar Producto</Link>
+                        {tipoUsuario === "administrador" ? (
+                        <Link to={`/cake/update/${cake._id}`} className={`${styles.btn3} link-light`} > Editar Producto</Link>
+                        ) : (<div></div>) }
                         
                     </div>   
                 </div>  
