@@ -2,12 +2,12 @@
 
 ## Integrantes
 
-Mariana Muñoz
-Viviana Medina
-Ricardo Ortiz
-Santiago Gutierres
-Andres Uruburu
-David Vanegas
+1. Mariana Muñoz
+2. Viviana Medina
+3. Ricardo Ortiz
+4. Santiago Gutierres
+5. Andres Uruburu
+6. David Vanegas
  
 
 
@@ -15,16 +15,16 @@ David Vanegas
 
 Frontend:
 
---> npx create-react-app client
---> cd client
---> npm install axios react-router-dom@5.3.0
+1. --> npx create-react-app client
+2. --> cd client
+3. --> npm install axios react-router-dom@5.3.0
 
 Backend:
 
---> npm init -y
--->npm install express mongoose cors
--->npm install bcrypt
--->npm install jsonwebtoken cookie-parser
+1. --> npm init -y
+2. -->npm install express mongoose cors
+3. -->npm install bcrypt
+4. -->npm install jsonwebtoken cookie-parser
 
 Paquetes:
 
