@@ -160,6 +160,9 @@ const AllCakes = () => {
                 )})}  
                 </div>
                 <br/>
+                <div className="navbar fixed-bottom d-flex flex-row-reverse m-3">
+                    <a  aria-label="Chat on WhatsApp" href="https://wa.me/573122115949?text=Estoy%20interesado%20en%20Tu%20Producto%20En%20Venta"> <img width="60"   alt="Chat on WhatsApp" src="../imagenes/whatsapp.png" /> </a>
+                </div>
             </div>
         </div>
     )
