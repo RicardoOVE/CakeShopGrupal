@@ -12,8 +12,7 @@ import Genovesas from "./componentes/AllCakes/Genovesas";
 import Postres from "./componentes/AllCakes/Postres";
 import Tortas from "./componentes/AllCakes/Tortas";
 import OtrosProductos from "./componentes/AllCakes/OtrosProductos";
-
-
+import Addimage from "./componentes/Addimage";
 
 function App() {
   return (

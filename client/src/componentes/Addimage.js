@@ -17,7 +17,7 @@ const Addimage = () => {
         axios.post("http://localhost:8000/api/imagen", formData)
             .then(result => {
                 console.log(result);
-             })
+            })
             .catch(err => (false));
     }
 

@@ -58,27 +58,27 @@ const AllCakes = () => {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-          let imageUrl = "";
-          if (image) {
-            const formData = new FormData();
-            formData.append("file", image);
-            formData.append("upload_preset", "pruebaImagen");
-            const dataRes = await axios.post(
-              "yourUrl",
-              formData
+            let imageUrl = "";
+            if (image) {
+                const formData = new FormData();
+                formData.append("file", image);
+                formData.append("upload_preset", "pruebaImagen");
+                const dataRes = await axios.post(
+                    "yourUrl",
+                    formData
             );
             imageUrl = dataRes.data.url;
-          }
-    
-          const submitPost = {
-            image: imageUrl,
-          };
-          
-          await axios.post("http://localhost:3001/store-image", submitPost);
-        } catch (err) {
-          err.response.data.msg && setError(err.response.data.msg);
         }
-      }
+    
+        const submitPost = {
+            image: imageUrl,
+        };
+
+        await axios.post("http://localhost:3001/store-image", submitPost);
+        } catch (err) {
+            err.response.data.msg && setError(err.response.data.msg);
+        }
+    }
 
     return (
         <div>
@@ -107,71 +107,62 @@ const AllCakes = () => {
             <br/>
             
             <div className="container">
+                <div className="container col-8 bg-transparent border-dark mb-3 text-center" >
                 {lista.map((item) => {
-                    return (
-                        <div className="container col-8 bg-transparent border-dark mb-3 text-center" >
-                            <div className="container p-3">
-                                <div className="row">
-                                    <h2 className={`${styles.h2}`}>{item.nombre}</h2>
-                                    <div className="col-4" style={{alignSelf:"center"}}>
-                                        <img src={item.imagenURL} alt="cake" className='img-fluid img-thumbnail border border-dark'/>
+                    return(
+                    <div className="container p-3">
+                        <div className="row">
+                            <h2 className={`${styles.h2}`}>{item.nombre}</h2>
+                            <div className="col-4" style={{alignSelf:"center"}}>
+                                <img src={item.imagenURL} alt="cake" className='img-fluid img-thumbnail border border-dark'/>
+                            </div>
+                            <div className={`${styles.cont1} col-5 container`} style={{alignSelf:"center"}}>
+                                <div className="row text-align-center"  >
+                                    <div className="col-6">
+                                        <p><b># de Porciones:</b></p>
                                     </div>
-                                    
-                                    <div className={`${styles.cont1} col-5 container`} style={{alignSelf:"center"}}>
-                                        <div className="row text-align-center"  >
-                                            <div className="col-6">
-                                                <p><b># de Porciones:</b></p>
-                                            </div>
-                                            <div className="col-6">
-                                                <p> {item.porciones}</p>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-6">
-                                                    <p><b>Precio:</b></p>
-                                                </div>
-                                                <div className="col-6">
-                                                    <p> {item.price}</p>
-                                                </div>
-                                            </div>
-                                            <div className="row">
-                                                <div className="col-6">
-                                                    <p><b>Refrigerada:</b></p>
-                                                </div>
-                                                <div className="col-6">
-                                                    <p> {item.refrigerated === true ? <p>Si</p> : <p>No</p>}</p>
-                                                </div>
-                                            </div>
+                                    <div className="col-6">
+                                        <p> {item.porciones}</p>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-6">
+                                            <p><b>Precio:</b></p>
                                         </div>
-                                        <div className={`${styles.cont2} col-3 container`} style={{alignSelf:"center"}}>
-                                            <div className= {`${styles.botones} d-grid gap-2 col-6 mx-auto`} >
-                                                <Link to={`/cake/${item._id}`} 
-                                                className={`${styles.btn} link-light`} > Ver</Link>
-                                                
-                                                {tipoUsuario === "administrador" ? (
-                                                <Link to={`/cake/update/${item._id}`} className={`${styles.btn3} link-light`} > Editar Producto</Link>
-                                                ) : (<div></div>) }
-                                                {tipoUsuario === "administrador" ? (
-                                                <button className="btn btn-dark" onClick={() => borrar(item._id)} >Eliminar</button>
-                                                ) : (<div></div>) }
-                                                
-                                            </div>
+                                        <div className="col-6">
+                                            <p> {item.price}</p>
                                         </div>
+                                    </div>
+                                    <div className="row">
+                                        <div className="col-6">
+                                            <p><b>Refrigerada:</b></p>
+                                        </div>
+                                        <div className="col-6">
+                                            <p> {item.refrigerated === true ? <p>Si</p> : <p>No</p>}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={`${styles.cont2} col-3 container`} style={{alignSelf:"center"}}>
+                                    <div className= {`${styles.botones} d-grid gap-2 col-6 mx-auto`} >
+                                        <Link to={`/cake/${item._id}`} 
+                                        className={`${styles.btn} link-light`} > Ver</Link>
                                         
+                                        {tipoUsuario === "administrador" ? (
+                                        <Link to={`/cake/update/${item._id}`} className={`${styles.btn3} link-light`} > Editar Producto</Link>
+                                        ) : (<div></div>) }
+                                        {tipoUsuario === "administrador" ? (
+                                        <button className="btn btn-dark" onClick={() => borrar(item._id)} >Eliminar</button>
+                                        ) : (<div></div>) }
                                     </div>
                                 </div>
                             </div>
-                        )}
-                        )}   
+                        </div>
+                    </div>
+                )})}  
                 </div>
-
-                
-                
-
                 <br/>
-
             </div>
         </div>
-    );
+    )
 
 }
 export default AllCakes;
