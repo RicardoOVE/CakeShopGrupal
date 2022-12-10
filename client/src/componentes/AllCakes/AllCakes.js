@@ -77,6 +77,62 @@ const AllCakes = () => {
         }
     }
 
+    //Shopping Cart
+    let [cart, setCart] = useState([])
+    
+    let localCart = localStorage.getItem("cart");
+
+    //this is called on component mount
+    useEffect(() => {
+        //turn it into js
+        localCart = JSON.parse(localCart);
+        //load persisted cart into state if it exists
+        if (localCart) setCart(localCart)
+    
+    }, [])
+
+    const addItem = (item) => {
+
+        //create a copy of our cart state, avoid overwritting existing state
+        let cartCopy = [...cart];
+        
+        //assuming we have an ID field in our item
+        let {_id} = item;
+        
+        //look for item in cart array
+        let existingItem = cartCopy.find(cartItem => cartItem._id == _id);
+        
+        //if item already exists
+        if (existingItem) {
+            existingItem.quantity += 1 //update item
+        } else { //if item doesn't exist, simply add it
+            item.quantity = 1
+            cartCopy.push(item)
+        }
+        
+        //update app state
+        setCart(cartCopy)
+        console.log(cartCopy)
+        //make cart a string and store in local space
+        let stringCart = JSON.stringify(cartCopy);
+        localStorage.setItem("cart", stringCart)
+        
+    }
+
+    const removeItem = (itemID) => {
+
+        //create cartCopy
+        let cartCopy = [...cart]
+        
+        cartCopy = cartCopy.filter(item => item._id != itemID);
+        
+        //update state and local
+        setCart(cartCopy);
+        
+        let cartString = JSON.stringify(cartCopy)
+        localStorage.setItem('cart', cartString)
+    }
+
     return (
         <div>
             <div className="d-flex justify-content-evenly align-items-center">
@@ -105,10 +161,10 @@ const AllCakes = () => {
             
             <div className="container">
                 <div className="container col-8 bg-transparent border-dark mb-3 text-center" >
-                {lista.map((item) => {
+                {lista.map((item, index) => {
                     return(
-                    <div className="container p-3">
-                        <div className="row">
+                    <div className="container p-3"  key={index}>
+                        <div className="row" >
                             <h2 className={`${styles.h2}`}>{item.nombre}</h2>
                             <div className="col-4" style={{alignSelf:"center"}}>
                                 <img src={item.imagenURL} alt="cake" className='img-fluid img-thumbnail border border-dark'/>
@@ -142,7 +198,7 @@ const AllCakes = () => {
                                     <div className= {`${styles.botones} d-grid gap-2 col-6 mx-auto`} >
                                         <Link to={`/cake/${item._id}`} 
                                         className={`${styles.btn} link-light`} > Ver</Link>
-                                        <button className={`${styles.btn}`}>Agregar</button>
+                                        <button onClick={(e) => addItem(item)} className={`${styles.btn}`}>Agregar</button >
                                         {tipoUsuario === "administrador" ? (
                                         <Link to={`/cake/update/${item._id}`} className={`${styles.btn3} link-light`} > Editar Producto</Link>
                                         ) : (<div></div>) }

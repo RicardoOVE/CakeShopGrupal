@@ -24,14 +24,13 @@ function App() {
         <h3 className={`${styles.h1} col-3`}>Revive la tradición</h3>
       </div>
       <br/>
-      
       <br/>
       <BrowserRouter>
 
         <Switch>
           <Route path="/registro" exact render={() => <Registro />} />
           <Route path="/login" exact render={() => <Login />} />
-          <Route path="/cakes" exact render={() => <AllCakes />} />
+          <Route path="/" exact render={() => <AllCakes />} />
           <Route path="/cupcakes" exact render={() => <Cupcakes />} />
           <Route path="/galletas" exact render={() => <Galletas />} />
           <Route path="/genovesas" exact render={() => <Genovesas />} />

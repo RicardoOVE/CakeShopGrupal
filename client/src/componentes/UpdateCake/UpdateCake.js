@@ -64,11 +64,9 @@ const UpdateCake = () => {
         <div className="container ">
             <div>
                 <div className="d-flex flex-row-reverse">
-                    <Link to="/cakes" className={`${styles.btn2} p-2`}> Volver al Inicio </Link>
-
+                    <Link to="/" className={`${styles.btn2} p-2`}> Volver al Inicio </Link>
                 </div>
                 <h3 className={`${styles.h3} text-center my-2`}>Editar Producto</h3>
-                
             </div>
             <div className='container bg-transparent p-3'>
                 
