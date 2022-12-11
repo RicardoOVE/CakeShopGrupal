@@ -72,16 +72,16 @@ body {
 
 
 header {
-    background: rgba(255, 165, 0, 0.20);
+    background: rgba(255, 165, 0, 0.90);
 }
 
 .dropdown {
-    background-color: rgba(255, 165, 0, 0.20);
+    background-color: rgba(255, 165, 0, 0.90);
 
 }
 
 .dropdownMenu:hover {
-    background-color:  rgba(255, 165, 0, 0.40);
+    background-color:  rgba(176, 116, 3, 0.99);
     
 }
     
@@ -89,4 +89,80 @@ header {
     padding-right: 10px;
 }
 
+.btnL {
+    border-color: rgba(255, 165, 0, 0.80);
+    
+}
 
+.btnL:hover {
+    background-color: rgba(255, 165, 0, 0.80);
+    color: black;
+}
+
+.btnR {
+    background-color: rgba(255, 165, 0, 0.90);
+}
+
+.btnR:hover {
+    background-color: rgba(255, 165, 0, 0.90);
+    color: black;
+}
+
+.footer {
+    color:  rgba(255, 165, 0, 0.10);
+}
+
+.imgLogo {
+    
+    
+        
+}
+
+.banner {
+    width: 50px;
+    height: 100%;
+   
+}
+
+.carusel {
+    width: 1200px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.carusel img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.productos {
+    display: flex;
+    justify-content: center;
+    padding-left: 50px;
+}
+
+.mostrario {
+    border-radius: 100%;
+    width: 100px;
+    height: 180px;
+}
+
+.mostrarioContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 120px;
+}
+
+
+.carruselColor {
+    background-color: #CE171C;
+}
+
+.productosMira{
+    display: flex;
+    justify-content: center;
+    
+}
