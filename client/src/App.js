@@ -13,6 +13,7 @@ import Postres from "./componentes/AllCakes/Postres";
 import Tortas from "./componentes/AllCakes/Tortas";
 import OtrosProductos from "./componentes/AllCakes/OtrosProductos";
 import Addimage from "./componentes/Addimage";
+import Cart from "./componentes/AllCakes/Cart";
 
 function App() {
   return (
@@ -26,7 +27,6 @@ function App() {
       <br/>
       <br/>
       <BrowserRouter>
-
         <Switch>
           <Route path="/registro" exact render={() => <Registro />} />
           <Route path="/login" exact render={() => <Login />} />
@@ -41,8 +41,8 @@ function App() {
           <Route path="/cake/:id" exact render={(routeProps) => <Cake {...routeProps} />} />
           <Route path="/cake/update/:id" render={() => <UpdateCake />}/>
           <Route path="/imagen" render={() => <Addimage/>}/>
+          <Route path="/cart" render={() => <Cart />} />
         </Switch>
-
       </BrowserRouter>
     </div>
   );
