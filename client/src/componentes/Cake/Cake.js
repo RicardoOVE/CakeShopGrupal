@@ -12,6 +12,48 @@ const Cake = () => {
     const cookies = new Cookies();
     const tipoUsuario = null ?? cookies.get('rol');
 
+    //Shopping Cart
+    let [cart, setCart] = useState([])
+    
+    let localCart = localStorage.getItem("cart");
+
+    //this is called on component mount
+    useEffect(() => {
+        //turn it into js
+        localCart = JSON.parse(localCart);
+        //load persisted cart into state if it exists
+        if (localCart) setCart(localCart)
+    
+    }, [])
+
+    const addItem = (item) => {
+
+        //create a copy of our cart state, avoid overwritting existing state
+        let cartCopy = [...cart];
+        
+        //assuming we have an ID field in our item
+        let {_id} = item;
+        
+        //look for item in cart array
+        let existingItem = cartCopy.find(cartItem => cartItem._id == _id);
+        
+        //if item already exists
+        if (existingItem) {
+            existingItem.quantity += 1 //update item
+        } else { //if item doesn't exist, simply add it
+            item.quantity = 1
+            cartCopy.push(item)
+        }
+        
+        //update app state
+        setCart(cartCopy)
+        console.log(cartCopy)
+        //make cart a string and store in local space
+        let stringCart = JSON.stringify(cartCopy);
+        localStorage.setItem("cart", stringCart)
+        
+    }
+
     //Inicializar el servidor para optener el producto que necesito
     //Se inicializa a travez de axios
 
@@ -73,6 +115,7 @@ const Cake = () => {
                                 </tr>
                             </tbody>
                         </table>
+                        <button onClick={(e) => addItem(cake)} className={`${styles.btn}`}>Agregar al carrito</button >
                         {tipoUsuario === "administrador" ? (
                         <Link to={`/cake/update/${cake._id}`} className={`${styles.btn3} link-light`} > Editar Producto</Link>
                         ) : (<div></div>) }

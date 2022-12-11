@@ -6,9 +6,10 @@ import Cookies from 'universal-cookie';
 
 const url = "http://localhost:8000/api/cakes";
 
-const AllCakes = () => {
+const Cart = () => {
 
     const [lista, setLista] = useState([])
+    const [direccion, setDireccion] = useState('')
 
     const history = useHistory();
 
@@ -52,34 +53,8 @@ const AllCakes = () => {
             })
     }
 
-    async function handleSubmit(e) {
-        e.preventDefault();
-        try {
-            let imageUrl = "";
-            if (image) {
-                const formData = new FormData();
-                formData.append("file", image);
-                formData.append("upload_preset", "pruebaImagen");
-                const dataRes = await axios.post(
-                    "yourUrl",
-                    formData
-            );
-            imageUrl = dataRes.data.url;
-        }
-    
-        const submitPost = {
-            image: imageUrl,
-        };
-
-        await axios.post("http://localhost:3001/store-image", submitPost);
-        } catch (err) {
-            err.response.data.msg && setError(err.response.data.msg);
-        }
-    }
-
     //Shopping Cart
     let [cart, setCart] = useState([])
-    
     let localCart = localStorage.getItem("cart");
 
     //this is called on component mount
@@ -152,73 +127,53 @@ const AllCakes = () => {
                         ) : (<div></div>) }
                         <Link className={`${styles.btn2} link-light`} to="/cart">Carrito de compras</Link>
                     </div>
-                    
                 </div>
                 <br/>
-                
             </div>
             <br/>
-            
             <div className="container">
-                <div className="container col-8 bg-transparent border-dark mb-3 text-center" >
-                {lista.map((item, index) => {
-                    return(
-                    <div className="container p-3"  key={index}>
-                        <div className="row" >
-                            <h2 className={`${styles.h2}`}>{item.nombre}</h2>
-                            <div className="col-4" style={{alignSelf:"center"}}>
-                                <img src={item.imagenURL} alt="cake" className='img-fluid img-thumbnail border border-dark'/>
-                            </div>
-                            <div className={`${styles.cont1} col-5 container`} style={{alignSelf:"center"}}>
-                                <div className="row text-align-center"  >
-                                    <div className="col-6">
-                                        <p><b># de Porciones:</b></p>
-                                    </div>
-                                    <div className="col-6">
-                                        <p> {item.porciones}</p>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-6">
-                                            <p><b>Precio:</b></p>
-                                        </div>
-                                        <div className="col-6">
-                                            <p> {item.price}</p>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-6">
-                                            <p><b>Refrigerada:</b></p>
-                                        </div>
-                                        <div className="col-6">
-                                            <p> {item.refrigerated === true ? <p>Si</p> : <p>No</p>}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={`${styles.cont2} col-3 container`} style={{alignSelf:"center"}}>
-                                    <div className= {`${styles.botones} d-grid gap-2 col-6 mx-auto`} >
-                                        <Link to={`/cake/${item._id}`} 
-                                        className={`${styles.btn} link-light`} > Ver</Link>
-                                        <button onClick={(e) => addItem(item)} className={`${styles.btn}`}>Agregar al carrito</button >
-                                        {tipoUsuario === "administrador" ? (
-                                        <Link to={`/cake/update/${item._id}`} className={`${styles.btn3} link-light`} > Editar Producto</Link>
-                                        ) : (<div></div>) }
-                                        {tipoUsuario === "administrador" ? (
-                                        <button className="btn btn-dark" onClick={() => borrar(item._id)} >Eliminar</button>
-                                        ) : (<div></div>) }
-                                    </div>
-                                </div>
-                            </div>
+                <div className="bg-transparent border-dark mb-3" >
+                    <table className="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                    
+                        <tbody>
+                            {cart.map((item, index) => {
+                                return(
+                                    <tr key={index}>
+                                        <td className={`${styles.h4}`}>{item.nombre}</td>
+                                        <td>{item.quantity}</td>
+                                        <td>{item.price}</td>
+                                        <td><button className="btn btn-danger m-1"  onClick={() => removeItem(item._id)}>Eliminar</button></td>
+                                    </tr>
+                                )
+                                
+                            })}
+                    </tbody>
+                    </table>
+                    <div className="d-flex justify-content-around">
+                        <div className="d-flex flex-column">
+                            <label>Dirección</label>
+                            <input type="text" name="direccion" value={direccion} onChange={e=>setDireccion(e.target.value)}></input>
                         </div>
+                        <a className={`${styles.btn2} link-light`} href={'https://wa.me/573122115949?text=Pedido:%20'+ JSON.stringify(cart, ['nombre', 'quantity']).replace("[", "").replace("]", "") + 'Dirección:' + direccion}> Terminar compra</a>
                     </div>
-                )})}  
+
                 </div>
                 <br/>
                 <div className="navbar fixed-bottom d-flex flex-row-reverse m-3">
-                    <a  aria-label="Chat on WhatsApp" href="https://wa.me/573122115949?text=Estoy%20interesado%20en%20Tu%20Producto%20En%20Venta"> <img width="60"   alt="Chat on WhatsApp" src="../imagenes/whatsapp.png" /> </a>
+                    <a aria-label="Chat on WhatsApp" href="https://wa.me/573122115949?text=Estoy%20interesado%20en%20Tu%20Producto%20En%20Venta"> <img width="60" alt="Chat on WhatsApp" src="../imagenes/whatsapp.png"/></a>
                 </div>
+            
             </div>
         </div>
     )
 
 }
-export default AllCakes;
+export default Cart;
