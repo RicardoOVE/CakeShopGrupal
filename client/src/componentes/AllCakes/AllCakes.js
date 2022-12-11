@@ -198,7 +198,7 @@ const AllCakes = () => {
                                     <div className= {`${styles.botones} d-grid gap-2 col-6 mx-auto`} >
                                         <Link to={`/cake/${item._id}`} 
                                         className={`${styles.btn} link-light`} > Ver</Link>
-                                        <button onClick={(e) => addItem(item)} className={`${styles.btn}`}>Agregar</button >
+                                        <button onClick={(e) => addItem(item)} className={`${styles.btn}`}>Agregar al carrito</button >
                                         {tipoUsuario === "administrador" ? (
                                         <Link to={`/cake/update/${item._id}`} className={`${styles.btn3} link-light`} > Editar Producto</Link>
                                         ) : (<div></div>) }
