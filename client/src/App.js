@@ -49,7 +49,7 @@ const history = useHistory();
     <div className={`${styles.cont1}`}>
 
       <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-around py-3 mb-4 border-bottom fixed-top">
-        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <a href="/Inicio" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
         </a>
 
@@ -61,10 +61,10 @@ const history = useHistory();
               Productos
             </button>
             <ul class={`${styles.dropdown} dropdown-menu`}>
-              <li ><a class={`${styles.dropdownMenu} dropdown-item `} href="/">Cupcakes</a></li>
-              <li><a class={`${styles.dropdownMenu} dropdown-item `} href="#">Galletas</a></li>
-              <li><a class={`${styles.dropdownMenu} dropdown-item `} href="#">Postres</a></li>
-              <li><a class={`${styles.dropdownMenu} dropdown-item `} href="#">Tortas</a></li>
+              <li ><a class={`${styles.dropdownMenu} dropdown-item `} href="/cupcakes">Cupcakes</a></li>
+              <li><a class={`${styles.dropdownMenu} dropdown-item `} href="/galletas">Galletas</a></li>
+              <li><a class={`${styles.dropdownMenu} dropdown-item `} href="/postres">Postres</a></li>
+              <li><a class={`${styles.dropdownMenu} dropdown-item `} href="/tortas">Tortas</a></li>
             </ul>
           </div></a></li>
 

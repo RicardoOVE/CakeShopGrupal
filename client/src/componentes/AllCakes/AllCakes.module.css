@@ -8,7 +8,7 @@
 }
 
 .btn2 {
-    background-color: rgb(231, 61, 95);
+    background-color: rgb(0, 0, 0);
     color: white;
     border-radius: 1rem;
     text-decoration: none;
@@ -31,7 +31,7 @@
 .h2 {
     text-shadow: 0.1em 0.1em 0.2em white;
     font-style: italic;
-    color: rgb(220, 47, 47);
+    color: rgb(188, 220, 47);
 
 }
 .h3 {
@@ -46,6 +46,15 @@
     border-radius: 1rem;
     padding: 0.3rem 0.4rem;
     width: 150%;
-
+    
 }
 
+.btnproducto {
+    padding-top: 70px;
+    margin-top: 80px;
+}
+
+.bodyProductos {
+   text-align: left;
+   
+}

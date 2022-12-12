@@ -51,7 +51,8 @@ const NewCake = () => {
                 setPrice3("");
                 setDescription("");
                 setRefrigerated("");
-                history.push("/cakes");
+
+                history.push(`/${categoria}`);
             })
             .catch(err => {
                 console.log(err.response.data);
@@ -89,14 +90,11 @@ const NewCake = () => {
                                 <p className="col-sm-3 col-form-label"><b>Categoria:</b></p>
                                 <div class="col-sm-7">
                                     <select label="Categoria:" className="form-select form-select-lg text-center" value={categoria} onChange={e => setCategoria(e.target.value)}   >
-                                        <option value=""></option>
+                                        <option value="Categoria">Elige una categoria</option>
                                         <option value="Cupcakes">Cupcakes</option>
-                                        <option value="Galletas">Galletas</option>
-                                        <option value="Genovesa">Genovesa</option>
+                                        <option value="Galletas">Galletas</option>   
                                         <option value="Postre">Postre</option>
-                                        <option value="Torta">Torta</option>
-                                        <option value="Otros productos">Otros Productos</option>
-
+                                        <option value="tortas">Torta</option>                                       
                                     </select>
                                     {errors.categoria ? <span className='text-danger'>{errors.categoria.message}</span> : null}
                                 </div>
