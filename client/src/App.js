@@ -55,7 +55,7 @@ const history = useHistory();
 
         <ul class="d-flex align-items-center nav col-13 col-md-auto mb-2 justify-content-center mb-md-0">
 
-          <li className={`${styles.li1}`}><a href="#" className={`${styles.btnHover} nav-link link-dark`}>Inicio</a></li>
+          <li className={`${styles.li1}`}><a href="/" className={`${styles.btnHover} nav-link link-dark`}>Inicio</a></li>
           <li className={`${styles.li1}`}><a href="#" class="nav-link px-2 link-dark"> <div class="dropdown">
             <button className={`${styles.btnHover1} btn dropdown-toggle`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Productos
@@ -69,7 +69,7 @@ const history = useHistory();
           </div></a></li>
 
 
-          <li className={`${styles.li1}`}><a href="#" class="">
+          <li className={`${styles.li1}`}><a href="/" class="">
             <div className={`${styles.imgLogo}`}>
               <img src="/imagenes/logo.jpeg" alt="logo" className={`${styles.img} col-3 img-fluid`} />
             </div>
