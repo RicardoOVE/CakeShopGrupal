@@ -21,6 +21,31 @@ const NewCake = () => {
 
     const history = useHistory();
 
+    const [image, setImage] = useState({ preview: '', data: '' })
+    const [url, setUrl] = useState("");
+
+    const sendForm = (e) => {
+        e.preventDefault();
+        
+        let formData = new FormData()
+        formData.append('file', image.data)
+        axios.post("http://localhost:8000/api/imagen", formData)
+            .then(result => {
+                console.log(result);
+            })
+            .catch(err => (false));
+    }
+
+    const handleFileChange = (e) => {
+        const vid = {
+            preview: URL.createObjectURL(e.target.files[0]),
+            data: e.target.files[0],
+        }
+        setImage(vid);
+        setUrl(vid.data.name);
+    }
+
+
     const guardarCake = e => {
         e.preventDefault();
         axios.post("http://localhost:8000/api/cakes", {
@@ -93,20 +118,22 @@ const NewCake = () => {
                                         <option value="Categoria">Elige una categoria</option>
                                         <option value="Cupcakes">Cupcakes</option>
                                         <option value="Galletas">Galletas</option>   
-                                        <option value="Postre">Postre</option>
+                                        <option value="Postres">Postre</option>
                                         <option value="tortas">Torta</option>                                       
                                     </select>
                                     {errors.categoria ? <span className='text-danger'>{errors.categoria.message}</span> : null}
                                 </div>
                             </div>
                             <br/>
+                            <form onSubmit={sendForm}>
                             <div className='form-group row'>
                                 <label htmlFor='imagenURL' className="col-sm-3 col-form-label"><b>URL de la Imagen:</b></label>
                                 <div class="col-sm-7">
-                                    <input type="text" id="imagenURL" name="imagenURL" placeholder="Ingrese la URL de la imagen" value={imagenURL} onChange={e => setImagenURL(e.target.value)} className="form-control"/>
+                                    <input type="file" id="imagenURL" name="imagenURL" placeholder="Ingrese la URL de la imagen" value={imagenURL} onChange={e => setImagenURL(e.target.value)} className="form-control" accept='image/png, image/jpeg ,image/jpg, image/webp'/>
                                     {errors.imagenURL ? <span className='text-danger'>{errors.imagenURL.message}</span> : null}
                                 </div>
                             </div>
+                            </form>
                             <br/>
                             <div className='form-group row'>
                                 <label htmlFor='porciones' className="col-sm-3 col-form-label"><b># de porciones:</b></label>

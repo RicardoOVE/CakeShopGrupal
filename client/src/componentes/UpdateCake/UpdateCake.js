@@ -56,7 +56,7 @@ const UpdateCake = () => {
             description,
             refrigerated, 
         })
-            .then(res => history.push('/cakes'))
+            .then(res => history.push(`/${categoria}`))
             .catch(err => setErrors(err.response.data.errors));        
     }
 
@@ -90,7 +90,7 @@ const UpdateCake = () => {
                                         <option value="Cupcakes">Cupcakes</option>
                                         <option value="Galletas">Galletas</option>
                                         <option value="Genovesa">Genovesa</option>
-                                        <option value="Postre">Postre</option>
+                                        <option value="postres">Postre</option>
                                         <option value="Torta">Torta</option>
                                         <option value="Otros productos">Otros Productos</option>
                                     </select>

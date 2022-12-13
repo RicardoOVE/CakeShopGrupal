@@ -30,3 +30,5 @@ Paquetes:
 
 npm i universal-cookie
 
+npm install animate.css --save
+

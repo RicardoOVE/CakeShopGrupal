@@ -42,7 +42,7 @@ const Login = () => {
         <div class="modal-dialog" role="document">
           <div className="modal-content rounded-4 shadow bg-light bg-gradient">
             <div class="modal-header p-5 pt-4 pb-0 border-bottom-0">
-              <h1 class=" modal-title fs-3 " id="exampleModalLabel">Inicio Sesion</h1>
+              <h1 class=" modal-title fs-3 " id="exampleModalLabel">Inicia Sesion</h1>
               <a href="/">   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></a>
             </div>
             <hr className="my-4" />

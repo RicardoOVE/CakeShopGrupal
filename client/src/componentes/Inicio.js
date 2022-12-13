@@ -9,11 +9,11 @@ const Inicio = () => {
 
   return (
     <div>
-    <div className="container">
+   
       <div className={`${styles.imgInicio}`}>
         <img src="/imagenes/Banner.png" alt="logo" className={`${styles.img1} img-fluid animate__animated animate__zoomIn`} />
       </div>
-  </div>
+    
       <div id="carouselExampleIndicators" class={`${styles.carruselColor} carousel slide`} data-bs-ride="true">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -51,7 +51,7 @@ const Inicio = () => {
             <img src="/imagenes/GenovesaMoka.png" class={`${styles.mostrario} d-block w-100`} alt="..." />
             <h3 class="fw-normal">Genovesa moka</h3>
             <p className="">$ 40.000</p>
-            <a href="/registro"><button type="button" class={`${styles.btnL} btn `} data-bs-toggle="modal" data-bs-target="#exampleModal1">
+            <a href="/registro"><button type="button" class={`${styles.btnV} btn `} data-bs-toggle="modal" data-bs-target="#exampleModal1">
             Ver mas
           </button></a>
           </div>
@@ -59,7 +59,7 @@ const Inicio = () => {
             <img src="/imagenes/GenovesaFresa.png" class={`${styles.mostrario} d-block w-100`} alt="..." />
             <h3 class="fw-normal">Genovesa fresas</h3>
             <p> $ 45.000</p>
-            <a href="/registro"><button type="button" class={`${styles.btnL} btn `} data-bs-toggle="modal" data-bs-target="#exampleModal1">
+            <a href="/registro"><button type="button" class={`${styles.btnV} btn `} data-bs-toggle="modal" data-bs-target="#exampleModal1">
             Ver mas
           </button></a>
           </div>
@@ -67,7 +67,7 @@ const Inicio = () => {
             <img src="/imagenes/cupcakes.png" class={`${styles.mostrario} d-block w-100`} alt="..." />
             <h3 class="fw-normal">Cupcakes</h3>
             <p>$ 25.000 </p>
-            <a href="/registro"><button type="button" class={`${styles.btnL} btn `} data-bs-toggle="modal" data-bs-target="#exampleModal1">
+            <a href="/registro"><button type="button" class={`${styles.btnV} btn `} data-bs-toggle="modal" data-bs-target="#exampleModal1">
             Ver mas
           </button></a>
           </div>

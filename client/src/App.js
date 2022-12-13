@@ -49,15 +49,15 @@ const history = useHistory();
     <div className={`${styles.cont1}`}>
 
       <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-around py-3 mb-4 border-bottom fixed-top">
-        <a href="/Inicio" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <a href="/Inicio" class={`${styles.inicioz} d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none`}>
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
         </a>
 
-        <ul class="d-flex align-items-center nav col-13 col-md-auto mb-2 justify-content-center mb-md-0">
+        <ul class="d-flex align-items-center nav col-13 col-md-auto mb-2 justify-content-center mb-md-0 fs-5 text">
 
           <li className={`${styles.li1}`}><a href="/" className={`${styles.btnHover} nav-link link-dark`}>Inicio</a></li>
           <li className={`${styles.li1}`}><a href="#" class="nav-link px-2 link-dark"> <div class="dropdown">
-            <button className={`${styles.btnHover1} btn dropdown-toggle`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button className={`${styles.btnHover1} btn dropdown-toggle fs-5 text"`} type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Productos
             </button>
             <ul class={`${styles.dropdown} dropdown-menu`}>
