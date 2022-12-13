@@ -17,15 +17,19 @@
     color:rgb(0, 0, 0);
 }
 
-.btn3 {
-    background-color: rgb(248, 13, 60);
-    color: white;
-    border-radius: .5rem;
-    text-decoration: none;
-    border-radius: .5rem;
-    border: 0ex;
-    box-shadow: 2px 2px black;
-    margin-left: 40%;
-    margin-right: 10%;
+
+    .btn3:hover {
+        background-color: #FFAC15;
+        color: black;
+    }
     
-}
+    .btn3 {
+        border-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(255, 165, 0, 0.30);
+        border-radius: 1rem;
+        text-decoration: none;
+        display: flex;
+        justify-content: end;
+        margin-left: 420px;
+    }
+    

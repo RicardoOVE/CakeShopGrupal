@@ -67,12 +67,9 @@ const Cake = () => {
 
 
     return (
-        <div className = "container bg-transparent">
+        <div className = "container bg-transparent mt-4 py-4">
             <div>
-                <div className="d-flex flex-row-reverse">
-                    <Link to="/" className={`${styles.btn2} p-2`}> Volver al Inicio </Link>
-
-                </div>
+               
                 <h1 className={`${styles.h1} text-center my-2`} >{cake.nombre}</h1>
             </div>
             <div className="container bg-transparent p-3 col-10">

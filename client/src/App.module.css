@@ -195,3 +195,17 @@ header {
 .border-top {
     border-top: var(--bs-border-width) var(--bs-border-style) #000000!important;
 }
+
+.btnt{
+    background-color: #1AD03F;
+    display: flex;
+    justify-content: center;
+}
+
+.btnt:hover{
+    background-color: #21ff4d;
+}
+
+.Login {
+   background: rgba(245, 234, 213, 0.56);
+}

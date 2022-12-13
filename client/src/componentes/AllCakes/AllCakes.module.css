@@ -48,8 +48,7 @@
 }
 
 .btnproducto {
-    padding-top: 70px;
-    margin-top: 80px;
+    padding-top: 10px;
     background-color: antiquewhite;
 }
 
@@ -82,3 +81,15 @@
       vertical-align: top;
       margin-left: -10px; 
   }
+
+
+.btnG {
+    margin-left: 1300px;
+}
+
+.btn2{
+    background-color: #ffb486;
+}
+.btn2:hover{
+    background-color: #ff6200;
+}

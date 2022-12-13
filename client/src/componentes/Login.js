@@ -38,7 +38,7 @@ const Login = () => {
 
   return (
     <div className="row">
-      <div class="modal modal-signin position-fixed d-block  py-5" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class={`${styles.Login} modal modal-signin position-fixed d-block  py-5 `} id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div className="modal-content rounded-4 shadow bg-light bg-gradient">
             <div class="modal-header p-5 pt-4 pb-0 border-bottom-0">

@@ -107,15 +107,17 @@ const Cupcakes = () => {
         localStorage.setItem('cart', cartString)
     }
     return (
+        
         <div className={`${styles.btnproducto}`}>
-            <div className="container">
-                <div>
+              <div className={`${styles.btnG}`}>
                     
                     {tipoUsuario === "administrador" ? (
-                            <Link to="/cake/new" className={`${styles.btn2} btn btn-primary mx-4`} >Agregar Producto</Link>
+                            <Link to="/cake/new" className={`${styles.btn2} btn `} >Agregar Producto</Link>
                         ) : (<div></div>)}
 
                 </div>
+            <div className="container">
+              
                 <div className="d-flex row justify-content-between pt-1 mt-1 text-center">
                     <h1><b>C U P C A K E S</b></h1>
                 </div>
