@@ -79,7 +79,7 @@ function App() {
 
           <div className="d-flex flex-row">
             <li className={`${styles.li1}`}><a href="/About" className={`${styles.btnHover} nav-link px-2 link-dark`}>Quienes Somos</a></li>
-            <li className={`${styles.li1}`}><a href="#" className={`${styles.btnHover} nav-link px-2 link-dark`}>Contactanos</a></li>
+            <li className={`${styles.li1}`}><a href="/Contactanos" className={`${styles.btnHover} nav-link px-2 link-dark`}>Contactanos</a></li>
 
           </div>
         </ul>
