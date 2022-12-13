@@ -107,67 +107,13 @@ const Postres = () => {
         <div className={`${styles.btnproducto}`}>
             <div className="container">
             <div>
-                    <div className="d-flex flex-row-reverse">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart3 navbar-toggler " type="button"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark"viewBox="0 0 16 16">
-                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-                        </svg>
-                        
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbarDark" aria-labelledby="offcanvasNavbarDarkLabel">
-        <div class="offcanvas-header">
-        <div className="container">
-        <h4 class="offcanvas-title" id="offcanvasNavbarLightLabel">CARRITO DE COMPRAS</h4>
-                <div className="bg-transparent border-dark mb-3" >
-                    <table className="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Producto</th>
-                                <th>Precio</th>
-                                <th>Cantidad</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
                     
-                        <tbody>
-                            {cart.map((item, index) => {
-                                return(
-                                    <tr key={index}>
-                                        <td className={`${styles.h4}`}>{item.nombre}</td>
-                                        <td>{item.quantity}</td>
-                                        <td>{item.price}</td>
-                                        <td><button class={`${styles.btnV} btn btn-danger `} onClick={() => removeItem(item._id)}>Eliminar</button></td>
-                                    </tr>
-                                )
-                                
-                            })}
-                    </tbody>
-                    </table>
-                    <div className="d-flex justify-content-around ">
-                        <div className="d-flex flex-column">
-                            <label>Regalanos tu direccion completa</label>
-                            <input type="text" name="direccion" value={direccion} onChange={e=>setDireccion(e.target.value)}></input>
-                        </div>
-                    </div>
-                    <br/>
-                    <a className={`${styles.btnt} btn `} href={'https://wa.me/573122115949?text=Pedido:%20'+ JSON.stringify(cart, ['nombre', 'quantity']).replace("[", "").replace("]", "") + 'Dirección:' + direccion}> Terminar compra</a>
-
-
-                </div>
-                <br/>
-                <div className="navbar fixed-bottom d-flex flex-row-reverse m-3">
-                    <a aria-label="Chat on WhatsApp" href="https://wa.me/573122115949?text=Estoy%20interesado%20en%20Tu%20Producto%20En%20Venta"> <img width="60" alt="Chat on WhatsApp" src="../imagenes/whatsapp.png"/></a>
-                </div>
-            
-            </div>
-        </div>
-      </div>
-                        
-                        {tipoUsuario === "administrador" ? (
+                    {tipoUsuario === "administrador" ? (
                             <Link to="/cake/new" className={`${styles.btn2} btn btn-primary mx-4`} >Agregar Producto</Link>
                         ) : (<div></div>)}
-                        
-                    </div>
 
                 </div>
+<<<<<<< Updated upstream
                 
                 <br />
                 
@@ -175,6 +121,8 @@ const Postres = () => {
                     <h1><b>P O S T R E S</b></h1>
                 </div>
 
+=======
+>>>>>>> Stashed changes
                 <div className="d-flex row justify-content-between pt-1 mt-1 text-center">
                     {lista.map((item) => {
                         if (item.categoria === "Postre") {

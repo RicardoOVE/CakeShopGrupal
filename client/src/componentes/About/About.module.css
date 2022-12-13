@@ -8,3 +8,18 @@
   margin-top: -100px;
   
 }
+
+
+.carruselColor {
+  background-color: #ee9031;
+}
+
+.carrusel1 {
+  width: 10%;
+}
+
+.banner {
+  border-radius: 10%;
+  border-color: black;
+  box-shadow: 2px 2px rgba(255, 165, 0, 0.40);
+}
