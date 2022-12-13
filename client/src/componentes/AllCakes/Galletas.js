@@ -172,6 +172,9 @@ const Galletas = () => {
 
                 </div>
                 <br />
+                <div className="d-flex row justify-content-between pt-1 mt-1 text-center">
+                    <h1><b>G A L L E T A S</b></h1>
+                </div>
 
                 <div className="d-flex row justify-content-between pt-1 mt-1 text-center">
                     {lista.map((item) => {
@@ -179,37 +182,41 @@ const Galletas = () => {
 
 
                             return (
-                                <div class="album bg-light card border-dark my-5" style={{ width: '25rem', height: '31rem' }}>
-                                    <img src={item.imagenURL} alt="cake" className='card-img-top pt-2' style={{ height: '15rem', objectFit: 'cover' }} />
-                                    <div class={`${styles.bodyProductos} card-body`}>
-                                        <ul className="list-unstyled">
-                                            <h2 >{item.nombre}</h2>
-                                            <li>
-                                                <div className="col-6">
-                                                    <p><b>Porciones: </b>{item.porciones}</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="col-6">
-                                                    <p><b>Precio: </b>{item.price}</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="col-6">
-                                                    <p><b>Refrigerada: </b>{item.refrigerated === true ? <p>Si</p> : <p>No</p>}</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    
+                                    <div class="album bg-light card border-dark my-5" style={{ width: '25rem', height: '31rem' }}>
+                                        <img src={item.imagenURL} alt="cake" className='card-img-top pt-2' style={{ height: '15rem', objectFit: 'cover' }} />
+                                        <div class={`${styles.bodyProductos} card-body`}>
+                                            <ul className="list-unstyled">
+                                                <h2 >{item.nombre}</h2>
+                                                <li>
+                                                    <div className="col-6">
+                                                        <p><b>Porciones: </b>{item.porciones}</p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div className="col-6">
+                                                        <p><b>Precio: </b>{item.price}</p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div className="col-6">
+                                                        <p><b>Refrigerada: </b>{item.refrigerated === true ? <p>Si</p> : <p>No</p>}</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group">
                                                 <Link to={`/cake/${item._id}`} type="button" class="btn btn-sm btn-outline-secondary">Ver</Link>
+                                                <button onClick={(e) => addItem(item)} className="btn btn-sm btn-outline-secondary">Agregar al carrito</button >
                                                 {tipoUsuario === "administrador" ? (
                                                     <Link to={`/cake/update/${item._id}`} type="button" class="btn btn-sm btn-outline-secondary">Editar</Link>
                                                 ) : (<div></div>)}
                                                 {tipoUsuario === "administrador" ? (<Link type="button" onClick={() => borrar(item._id)} class="btn btn-sm btn-outline-secondary">Eliminar</Link>
                                                 ) : (<div></div>)}
                                             </div>
-                                           
+
+                                        </div>
                                         </div>
                                     </div>
                                 </div>

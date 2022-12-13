@@ -170,10 +170,14 @@ const Postres = () => {
                 </div>
                 
                 <br />
+                
+                <div className="d-flex row justify-content-between pt-1 mt-1 text-center">
+                    <h1><b>P O S T R E S</b></h1>
+                </div>
 
                 <div className="d-flex row justify-content-between pt-1 mt-1 text-center">
                     {lista.map((item) => {
-                        if (item.categoria === "Postres") {
+                        if (item.categoria === "Postre") {
 
 
                             return (
@@ -201,13 +205,14 @@ const Postres = () => {
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group">
                                                 <Link to={`/cake/${item._id}`} type="button" class="btn btn-sm btn-outline-secondary">Ver</Link>
+                                                <button onClick={(e) => addItem(item)} className="btn btn-sm btn-outline-secondary">Agregar al carrito</button >
                                                 {tipoUsuario === "administrador" ? (
                                                     <Link to={`/cake/update/${item._id}`} type="button" class="btn btn-sm btn-outline-secondary">Editar</Link>
                                                 ) : (<div></div>)}
                                                 {tipoUsuario === "administrador" ? (<Link type="button" onClick={() => borrar(item._id)} class="btn btn-sm btn-outline-secondary">Eliminar</Link>
                                                 ) : (<div></div>)}
                                             </div>
-                                           
+
                                         </div>
                                     </div>
                                 </div>

@@ -3,7 +3,7 @@
     color: white;
     border-radius: 1rem;
     text-decoration: none;
-    box-shadow: 2px 2px black;
+    box-shadow: 1px 1px black;
 }
 .btn2:hover {
     color:white;
@@ -20,12 +20,13 @@
 }
 
 .btn3 {
-    background-color: rgb(220, 87, 114);
+    background-color: rgb(231, 61, 95);
     color: white;
     text-decoration: none;
-    border-radius: .5rem;
-    padding: 2%;
+    margin-left: 2%;
+    border-radius: 1rem;
+    padding: 1%;
     width: 150%;
-    box-shadow: 2px 2px black;
+    box-shadow: 3px 3px black;
 
 }

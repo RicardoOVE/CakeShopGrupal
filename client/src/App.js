@@ -125,6 +125,8 @@ function App() {
               <li><a class={`${styles.dropdownMenu} dropdown-item `} href="/galletas">Galletas</a></li>
               <li><a class={`${styles.dropdownMenu} dropdown-item `} href="/postres">Postres</a></li>
               <li><a class={`${styles.dropdownMenu} dropdown-item `} href="/tortas">Tortas</a></li>
+              <li><a class={`${styles.dropdownMenu} dropdown-item `} href="/genovesas">Genovesas</a></li>
+              <li><a class={`${styles.dropdownMenu} dropdown-item `} href="/otros_productos">Otros Productos</a></li>
             </ul>
           </div></a></li>
 

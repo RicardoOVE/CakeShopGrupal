@@ -116,6 +116,9 @@ const Cupcakes = () => {
                         ) : (<div></div>)}
 
                 </div>
+                <div className="d-flex row justify-content-between pt-1 mt-1 text-center">
+                    <h1><b>C U P C A K E S</b></h1>
+                </div>
 
                 <div className="d-flex row justify-content-between pt-1 mt-1 text-center">
                     {lista.map((item) => {

@@ -116,7 +116,9 @@ const NewCake = () => {
                                         <option value="Cupcakes">Cupcakes</option>
                                         <option value="Galletas">Galletas</option>   
                                         <option value="Postres">Postre</option>
-                                        <option value="tortas">Torta</option>                                       
+                                        <option value="tortas">Torta</option>
+                                        <option value="Genovesa">Genovesas</option> 
+                                        <option value="Otros">Otros Productos</option>                                        
                                     </select>
                                     {errors.categoria ? <span className='text-danger'>{errors.categoria.message}</span> : null}
                                 </div>

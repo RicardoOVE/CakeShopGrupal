@@ -79,7 +79,7 @@ const Cake = () => {
                 <div className="row text-center">
                     <div className="col-5 ">
                         <div>
-                            <img src={cake.imagenURL} alt="cake" className='img-fluid img-thumbnail border border-dark' width="200"/>
+                            <img src={cake.imagenURL} alt="cake" className='img-fluid img-thumbnail border border-dark' width="250"/>
                         </div>
                         <br/>
                         <div>
@@ -115,7 +115,7 @@ const Cake = () => {
                                 </tr>
                             </tbody>
                         </table>
-                        <button onClick={(e) => addItem(cake)} className={`${styles.btn}`}>Agregar al carrito</button >
+                        <button onClick={(e) => addItem(cake)} className={`${styles.btn2}`}>Agregar al carrito</button >
                         {tipoUsuario === "administrador" ? (
                         <Link to={`/cake/update/${cake._id}`} className={`${styles.btn3} link-light`} > Editar Producto</Link>
                         ) : (<div></div>) }
