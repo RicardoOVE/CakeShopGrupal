@@ -4,9 +4,6 @@ import styles from "../App.module.css";
 
 const Inicio = () => {
 
-
-
-
   return (
     <div>
 
