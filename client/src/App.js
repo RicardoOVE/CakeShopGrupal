@@ -21,6 +21,7 @@ import Inicio from "./componentes/Inicio";
 import InicioAbierto from "./componentes/InicioAbierto";
 import Cookies from 'universal-cookie';
 import { useEffect } from "react";
+import Contactanos from "./componentes/Contactanos";
 
 function App() {
 
@@ -36,6 +37,8 @@ function App() {
 
   const cerrarSesion = () => {
     axios.get('http://localhost:8000/api/logout')
+        .then(res => {
+          cookies.remove("rol")
       .then(res => {
         cookies.remove("rol")
 
@@ -77,7 +80,7 @@ function App() {
 
           <div className="d-flex flex-row">
             <li className={`${styles.li1}`}><a href="#" className={`${styles.btnHover} nav-link px-2 link-dark`}>Quienes Somos</a></li>
-            <li className={`${styles.li1}`}><a href="#" className={`${styles.btnHover} nav-link px-2 link-dark`}>Contactanos</a></li>
+            <li className={`${styles.li1}`}><a href="/contactenos" className={`${styles.btnHover} nav-link px-2 link-dark`}>Contactanos</a></li>
 
           </div>
         </ul>
@@ -127,6 +130,7 @@ function App() {
           <Route path="/imagen" render={() => <Addimage />} />
           <Route path="/cart" render={() => <Cart />} />
           <Route path="/InicioAbierto" render={() => <InicioAbierto />} />
+          <Route path="/contactanos" render={() => <Contactanos />} />
 
 
         </Switch>
