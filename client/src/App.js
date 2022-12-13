@@ -21,6 +21,7 @@ import Inicio from "./componentes/Inicio";
 import InicioAbierto from "./componentes/InicioAbierto";
 import Cookies from 'universal-cookie';
 import { useEffect } from "react";
+import About from "./componentes/About/About";
 
 function App() {
 
@@ -76,7 +77,7 @@ const history = useHistory();
           </a></li>
 
           <div className="d-flex flex-row">
-            <li className={`${styles.li1}`}><a href="#" className={`${styles.btnHover} nav-link px-2 link-dark`}>Quienes Somos</a></li>
+            <li className={`${styles.li1}`}><a href="/About" className={`${styles.btnHover} nav-link px-2 link-dark`}>Quienes Somos</a></li>
             <li className={`${styles.li1}`}><a href="#" className={`${styles.btnHover} nav-link px-2 link-dark`}>Contactanos</a></li>
 
           </div>
@@ -108,6 +109,7 @@ const history = useHistory();
           <Route path="/registro" exact render={() => <Registro />} />
           <Route path="/login" exact render={() => <Login />} />
           <Route path="/" exact render={() => <Inicio />} />
+          <Route path="/About" exact render={() => <About />} />
           <Route path="/Cakes" exact render={() => <AllCakes />} />
           <Route path="/cupcakes" exact render={() => <Cupcakes />} />
           <Route path="/galletas" exact render={() => <Galletas />} />
