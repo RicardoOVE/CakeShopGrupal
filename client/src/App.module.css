@@ -119,16 +119,20 @@ header {
 }
 
 .footer {
-    color:  rgba(255, 165, 0, 0.10);
+    border-top-color: black;
+    
 }
 
 .imgInicio {
     background-color: antiquewhite;
+  
     
 }
 
 .img1 {
     padding-left: 100px;
+    margin-top: -100px;
+    
 }
 
 .banner {
@@ -186,4 +190,8 @@ header {
 
 .contactenos{
     padding-top: 90px;
+}
+
+.border-top {
+    border-top: var(--bs-border-width) var(--bs-border-style) #000000!important;
 }

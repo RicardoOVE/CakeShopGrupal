@@ -12,10 +12,8 @@ const Contactanos = () => {
     const [mensaje, setMensaje] = useState('Mensaje')
 
     return (
-        <div className="contactenos my-5 pt-5">
-            <div className="my-5"></div>
+        <div className="contactenos my-5 pt-4">
             <div className="container">
-                <div className="pb-5"></div>
                 <div className="row">
                     <div className="col text-center">
                         <h5>¿Tienes comentarios para nosotros?</h5>

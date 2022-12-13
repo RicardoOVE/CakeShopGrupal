@@ -20,7 +20,7 @@ import Cart from "./componentes/AllCakes/Cart";
 import Inicio from "./componentes/Inicio";
 import InicioAbierto from "./componentes/InicioAbierto";
 import Cookies from 'universal-cookie';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import About from "./componentes/About/About";
 import Contactanos from "./componentes/Contactanos";
 
@@ -35,6 +35,8 @@ function App() {
   }, []
   )
 
+  const [direccion, setDireccion] = useState('')
+
 
   const cerrarSesion = () => {
     axios.get('http://localhost:8000/api/logout')
@@ -45,6 +47,62 @@ function App() {
       })
       .catch(err => console.log(err));
   }
+
+    //Shopping Cart
+    let [cart, setCart] = useState([])
+
+    let localCart = localStorage.getItem("cart");
+
+    //this is called on component mount
+    useEffect(() => {
+        //turn it into js
+        localCart = JSON.parse(localCart);
+        //load persisted cart into state if it exists
+        if (localCart) setCart(localCart)
+
+    }, [])
+
+    const addItem = (item) => {
+
+        //create a copy of our cart state, avoid overwritting existing state
+        let cartCopy = [...cart];
+
+        //assuming we have an ID field in our item
+        let { _id } = item;
+
+        //look for item in cart array
+        let existingItem = cartCopy.find(cartItem => cartItem._id == _id);
+
+        //if item already exists
+        if (existingItem) {
+            existingItem.quantity += 1 //update item
+        } else { //if item doesn't exist, simply add it
+            item.quantity = 1
+            cartCopy.push(item)
+        }
+
+        //update app state
+        setCart(cartCopy)
+        console.log(cartCopy)
+        //make cart a string and store in local space
+        let stringCart = JSON.stringify(cartCopy);
+        localStorage.setItem("cart", stringCart)
+
+    }
+
+    const removeItem = (itemID) => {
+
+        //create cartCopy
+        let cartCopy = [...cart]
+
+        cartCopy = cartCopy.filter(item => item._id != itemID);
+
+        //update state and local
+        setCart(cartCopy);
+
+        let cartString = JSON.stringify(cartCopy)
+        localStorage.setItem('cart', cartString)
+    }
 
 
   return (
@@ -96,13 +154,70 @@ function App() {
 
           ) : (<div>
             <div>
-              <a href="/" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-box-arrow-right btn btn-danger" viewBox="0 0 16 16" onClick={cerrarSesion}>
+             
+              <div className="d-flex flex-row-reverse item-content-center">
+              <a href="/" type="button" className="px-4 "><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-box-arrow-right btn btn-danger" viewBox="0 0 16 16" onClick={cerrarSesion}>
                 <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
                 <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
               </svg></a>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-cart3 navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarDark" aria-controls="offcanvasNavbarDark" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+                        </svg>
+
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbarDark" aria-labelledby="offcanvasNavbarDarkLabel">
+                            <div class="offcanvas-header">
+                                <div className="container">
+                                    <h4 class="offcanvas-title" id="offcanvasNavbarLightLabel">CARRITO DE COMPRAS</h4>
+                                    <div className="bg-transparent border-dark mb-3" >
+                                        <table className="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Producto</th>
+                                                    <th>Precio</th>
+                                                    <th>Cantidad</th>
+                                                    <th>Acciones</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                {cart.map((item, index) => {
+                                                    return (
+                                                        <tr key={index}>
+                                                            <td className={`${styles.h4}`}>{item.nombre}</td>
+                                                            <td>{item.quantity}</td>
+                                                            <td>{item.price}</td>
+                                                            <td><button class={`${styles.btnV} btn btn-danger `} onClick={() => removeItem(item._id)}>Eliminar</button></td>
+                                                        </tr>
+                                                    )
+
+                                                })}
+                                            </tbody>
+                                        </table>
+                                        <div className="d-flex justify-content-around ">
+                                            <div className="d-flex flex-column">
+                                                <label>Regalanos tu direccion completa</label>
+                                                <input type="text" name="direccion" value={direccion} onChange={e => setDireccion(e.target.value)}></input>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <a className={`${styles.btnt} btn `} href={'https://wa.me/573122115949?text=Pedido:%20' + JSON.stringify(cart, ['nombre', 'quantity']).replace("[", "").replace("]", "") + 'Dirección:' + direccion}> Terminar compra</a>
+
+
+                                    </div>
+                                    <br />
+                                    <div className="navbar fixed-bottom d-flex flex-row-reverse m-3">
+                                        <a aria-label="Chat on WhatsApp" href="https://wa.me/573122115949?text=Estoy%20interesado%20en%20Tu%20Producto%20En%20Venta"> <img width="60" alt="Chat on WhatsApp" src="../imagenes/whatsapp.png" /></a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
               
               
             </div>
+            
           </div>)}
 
         </div>
@@ -138,15 +253,15 @@ function App() {
 
       <div class="container">
 
-<footer class={`${styles.footer} d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top`}>
+<footer class={`${styles.footer} d-flex flex-wrap justify-content-between align-items-center py-3 mt-4 border-top border-dark`}>
   <div class="col-md-4 d-flex align-items-center">
     <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
       <svg class="bi" width="30" height="24"></svg>
     </a>
-    <span class="mb-3 mb-md-0 text-muted">© 2022 Reposteria Anver All rights reserved.</span>
+    <span class="mb-3 mb-md-0 text-black">© 2022 Reposteria Anver All rights reserved.</span>
   </div>
 
-  <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+  <ul class="nav col-md-4 justify-content-end list-unstyled d-flex text-black">
     <li class="ms-3"><a class="text-muted" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
       <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
     </svg></a></li>

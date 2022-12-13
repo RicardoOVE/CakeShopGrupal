@@ -90,10 +90,7 @@ const NewCake = () => {
     return(
         <div className={`container`}>
             <div>
-                <div className="d-flex flex-row-reverse">
-                    <Link to="/cakes" className={`${styles.btn2} p-2`}> Volver al Inicio </Link>
-
-                </div>
+              
                 <h3 className={`${styles.h3} text-center my-2`}>Nuevo Producto</h3>
                 
             </div>
