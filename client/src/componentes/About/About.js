@@ -26,7 +26,7 @@ const About = () => {
                 </div>
                 <div className="col-1 "></div>
                 <div className="col-4 d-flex justify-content-center align-items-center"  >
-                    <h2>Anver repostería nace de la idea de 3 hermanas, por ello es que al ser una empresa familiar pensamos en aquellos ricos sabores repostería caseros utilizando ingredientes finos y frescos para dar nuestro famoso "toque gourmet", todo esto sin dejar de lado los exquisitos sabores artesanales en todos nuestros productos y con una calidad insuperable. Nuestra empresa se enorgullece de siempre brindar un excelente servicio, tanto en los métodos de aseguramiento de la calidad como en la frescura y selección exclusiva de nuestros ingredientes cuidando cada detalle de nuestro producto final. </h2>
+                    <h4>Anver repostería nace de la idea de 3 hermanas, por ello es que al ser una empresa familiar pensamos en aquellos ricos sabores repostería caseros utilizando ingredientes finos y frescos para dar nuestro famoso "toque gourmet", todo esto sin dejar de lado los exquisitos sabores artesanales en todos nuestros productos y con una calidad insuperable. Nuestra empresa se enorgullece de siempre brindar un excelente servicio, tanto en los métodos de aseguramiento de la calidad como en la frescura y selección exclusiva de nuestros ingredientes cuidando cada detalle de nuestro producto final. </h4>
                 </div>
                 <div className="col-1 "></div>
             </div>
@@ -39,7 +39,7 @@ const About = () => {
                     </div>
                     <div className="col-1 "></div>
                     <div className="col-5 d-flex justify-content-center align-items-center"  >
-                        <h2><b>MISION </b>
+                        <h5><b>MISION </b>
                             <br/>
                             Anver es una empresa dedicada a la creación y venta de arte dulce a través de la fusión de técnicas tradicionales e internacionales, con el propósito que nuestros clientes vivan experiencias únicas y sorprendentes, con alto valor nutricional y de alta calidad a un precio justo. Centramos los esfuerzos en llevar conocimientos y nuevas experiencias culinarias a nuestros clientes internos y externos.
                             <br/>
@@ -48,7 +48,7 @@ const About = () => {
                             <br/>
                             Llegar a ser una empresa reconocida por su excelencia en su servicio y en la calidad de sus productos.
                             Ser el referente gastronómico preferido de la región como repostería, manteniendo la innovación, ofreciendo servicios y productos que sobrepasen las expectativas de nuestros clientes. Logrando para el año 2028 apertura de cinco tiendas físicas, por medio de la optimización de los procesos de producción y plan de ventas.
-                        </h2>
+                        </h5>
                     </div>
                     <div className="col-1 "></div>
                 </div>
@@ -61,14 +61,14 @@ const About = () => {
                     </div>
                     <div className="col-1 "></div>
                     <div className="col-5 d-flex justify-content-center align-items-center"  >
-                        <h2><b>OBJETIVOS</b>
+                        <h4><b>OBJETIVOS</b>
                             <br/>
                             <br/>
                             Mejorar continuamente la calidad, productividad y rentabilidad de nuestra organización, con el fin de permanecer y crecer el mercado de la repostería.
                             <br/>
                             <br/>
                             Tener una calidad percibida a precios competitivos, satisfaciendo así con excelencia a nuestros consumidores.
-                        </h2>
+                        </h4>
                     </div>
                     <div className="col-1 "></div>
                 </div>
