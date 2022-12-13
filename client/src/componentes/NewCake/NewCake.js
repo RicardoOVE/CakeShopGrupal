@@ -88,7 +88,7 @@ const NewCake = () => {
     }
 
     return(
-        <div className="container ">
+        <div className={`container`}>
             <div>
                 <div className="d-flex flex-row-reverse">
                     <Link to="/cakes" className={`${styles.btn2} p-2`}> Volver al Inicio </Link>

@@ -24,7 +24,7 @@ import { useEffect } from "react";
 import Contactanos from "./componentes/Contactanos";
 
 function App() {
-
+ const history = useHistory();
   const cookies = new Cookies();
   const tipoUsuario = null ?? cookies.get('rol');
 
@@ -37,8 +37,6 @@ function App() {
 
   const cerrarSesion = () => {
     axios.get('http://localhost:8000/api/logout')
-        .then(res => {
-          cookies.remove("rol")
       .then(res => {
         cookies.remove("rol")
 
@@ -47,7 +45,7 @@ function App() {
       .catch(err => console.log(err));
   }
 
-  const history = useHistory();
+ 
   return (
     <div className={`${styles.cont1}`}>
 
