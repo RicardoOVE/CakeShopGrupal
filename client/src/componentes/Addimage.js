@@ -32,6 +32,12 @@ const Addimage = () => {
 
     return (
 <div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
 <form onSubmit={sendForm}>
  
  <div className='form-group'>

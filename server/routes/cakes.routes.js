@@ -5,7 +5,7 @@ const {upload} = require("../config/multer.config")
 const {authenticate} = require("../config/jwt.config");
 
 module.exports = (app) => {
-    app.post("/api/cakes", CakesController.create_cake);
+    app.post("/api/cakes", CakesController.create_cake, upload.single("file"), function(req, res){res.json({})} );
     app.get("/api/cakes", CakesController.get_all);
     app.get("/api/cake/:id", CakesController.get_cake);
     app.delete("/api/cakes/:id", CakesController.delete_cake);

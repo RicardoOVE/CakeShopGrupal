@@ -21,7 +21,7 @@ const NewCake = () => {
 
     const history = useHistory();
 
-    const [image, setImage] = useState({ preview: '', data: '' })
+     const [image, setImage] = useState({ preview: '', data: '' })
     const [url, setUrl] = useState("");
 
     const sendForm = (e) => {
@@ -88,7 +88,7 @@ const NewCake = () => {
     }
 
     return(
-        <div className="container ">
+        <div className={`container`}>
             <div>
                 <div className="d-flex flex-row-reverse">
                     <Link to="/cakes" className={`${styles.btn2} p-2`}> Volver al Inicio </Link>
@@ -125,15 +125,13 @@ const NewCake = () => {
                                 </div>
                             </div>
                             <br/>
-                            <form onSubmit={sendForm}>
                             <div className='form-group row'>
                                 <label htmlFor='imagenURL' className="col-sm-3 col-form-label"><b>URL de la Imagen:</b></label>
                                 <div class="col-sm-7">
-                                    <input type="file" id="imagenURL" name="imagenURL" placeholder="Ingrese la URL de la imagen" value={imagenURL} onChange={e => setImagenURL(e.target.value)} className="form-control" accept='image/png, image/jpeg ,image/jpg, image/webp'/>
+                                    <input type="text" id="imagenURL" name="imagenURL" placeholder="Ingrese la URL de la imagen" value={imagenURL} onChange={e => setImagenURL(e.target.value)} className="form-control"/>
                                     {errors.imagenURL ? <span className='text-danger'>{errors.imagenURL.message}</span> : null}
                                 </div>
                             </div>
-                            </form>
                             <br/>
                             <div className='form-group row'>
                                 <label htmlFor='porciones' className="col-sm-3 col-form-label"><b># de porciones:</b></label>
