@@ -45,10 +45,10 @@ const Inicio = () => {
 
         <div class="row">
           <div class={`${styles.mostrarioContainer} col-lg-4`}>
-            <img src="/imagenes/GenovesaMoka.png" class={`${styles.mostrario} d-block w-100`} alt="..." />
-            <h3 class="fw-normal">Genovesa moka</h3>
-            <p className="">$ 40.000</p>
-            <a href="/registro"><button type="button" class={`${styles.btnV} btn `} data-bs-toggle="modal" data-bs-target="#exampleModal1">
+            <img src="/imagenes/img_galletas2.jpg" class={`${styles.mostrario} d-block w-100`} alt="..." />
+            <h3 class="fw-normal">Galletas Jengibre</h3>
+            <p className="">$ 14.000</p>
+            <a href="/galletas"><button type="button" class={`${styles.btnV} btn `} data-bs-toggle="modal" data-bs-target="#exampleModal1">
               Ver mas
             </button></a>
           </div>
@@ -56,7 +56,7 @@ const Inicio = () => {
             <img src="/imagenes/GenovesaFresa.png" class={`${styles.mostrario} d-block w-100`} alt="..." />
             <h3 class="fw-normal">Genovesa fresas</h3>
             <p> $ 45.000</p>
-            <a href="/registro"><button type="button" class={`${styles.btnV} btn `} data-bs-toggle="modal" data-bs-target="#exampleModal1">
+            <a href="/genovesas"><button type="button" class={`${styles.btnV} btn `} data-bs-toggle="modal" data-bs-target="#exampleModal1">
               Ver mas
             </button></a>
           </div>
@@ -64,7 +64,7 @@ const Inicio = () => {
             <img src="/imagenes/cupcakes.png" class={`${styles.mostrario} d-block w-100`} alt="..." />
             <h3 class="fw-normal">Cupcakes</h3>
             <p>$ 25.000 </p>
-            <a href="/registro"><button type="button" class={`${styles.btnV} btn `} data-bs-toggle="modal" data-bs-target="#exampleModal1">
+            <a href="/cupcakes"><button type="button" class={`${styles.btnV} btn `} data-bs-toggle="modal" data-bs-target="#exampleModal1">
               Ver mas
             </button></a>
           </div>
